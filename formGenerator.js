@@ -157,35 +157,32 @@ var userForm = {
 };
 
 
-myForm = formGenerator;
-
-
 function editUser(element, id) {
-    $element = $(element).closest('tr');
-   
+	var formObj = JSON.parse(JSON.stringify(userForm));
     showModal({
 		'modalsave': '',
 		'modalcancel': '',
 		'modaltitle': 'Info',
-		'modalbody': '' + myForm.init(
+		'modalbody': '' + formGenerator.init(
 		{
 			'tableHeaders': '#data th',
-			'form': userForm,
-			'editElement':$element
+			'form': formObj,
+			'editElement':$(element)
 		}
 		) + ''
 	});
 }
 
 function newUserForm(){
+	var formObj = JSON.parse(JSON.stringify(userForm));
 	showModal({
 		'modalsave': 'alert(\'save\')',
 		'modalcancel': '',
 		'modaltitle': 'Info',
-		'modalbody': '' + myForm.init(
+		'modalbody': '' + formGenerator.init(
 		{
 			'tableHeaders': '#data th',
-			'form': userForm,
+			'form': formObj,
 			'editElement':false
 		}
 		) + ''
