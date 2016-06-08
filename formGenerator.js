@@ -158,7 +158,7 @@ var userForm = {
 
 
 function editUser(element, id) {
-	var formObj = JSON.parse(JSON.stringify(userForm));
+	var formObj = $.extend(true, {}, userForm);
     showModal({
 		'modalsave': '',
 		'modalcancel': '',
@@ -174,7 +174,7 @@ function editUser(element, id) {
 }
 
 function newUserForm(){
-	var formObj = JSON.parse(JSON.stringify(userForm));
+	var formObj = $.extend(true, {}, userForm);
 	showModal({
 		'modalsave': 'alert(\'save\')',
 		'modalcancel': '',
